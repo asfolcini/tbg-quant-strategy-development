@@ -66,7 +66,7 @@ public class TripleMAStrategy extends TradingSystem {
 	/**
 	 * ACCOUNT
 	 */
-	private final PaperAccount account = new PaperAccount(50000, Currency.EUR);
+	private final PaperAccount account = new PaperAccount(50000, Currency.USD);
 	
 	/**
 	 * BROKER 
