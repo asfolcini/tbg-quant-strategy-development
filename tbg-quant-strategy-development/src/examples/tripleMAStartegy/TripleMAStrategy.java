@@ -129,8 +129,8 @@ public class TripleMAStrategy extends TradingSystem {
 	/**
 	 * ON EVENT 
 	 */
-	SMA fastSMA = new SMA(21);
-	SMA midSMA  = new SMA(40);
+	SMA fastSMA = new SMA(10);
+	SMA midSMA  = new SMA(60);
 	SMA slowSMA = new SMA(200);
 	@Override
 	public void onEvent(Object event) {
