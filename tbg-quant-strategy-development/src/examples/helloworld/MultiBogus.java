@@ -8,9 +8,7 @@ package examples.helloworld;
 import com.tbg.adapter.bogus.marketdatafeed.BogusMarketDataFeed;
 import com.tbg.adapter.paper.account.PaperAccount;
 import com.tbg.adapter.paper.broker.PaperBroker;
-import com.tbg.core.model.Security;
 import com.tbg.core.model.Order;
-import com.tbg.core.model.Symbol;
 import com.tbg.core.model.account.IAccount;
 import com.tbg.core.model.report.IReportService;
 import com.tbg.core.model.types.Currency;
@@ -24,18 +22,19 @@ import com.tbg.core.model.types.SecurityType;
 import com.tbg.core.model.types.event.CandleEvent;
 import com.tbg.service.report.TextReportService;
 import com.tbg.strategy.TradingSystem;
+import com.tbg.strategy.utils.LoadSecurities;
 import com.tbg.strategy.utils.PositionTracker;
 
  
 /**
- * HelloBogus
+ * MultiBogus
  * 
  * using paperBroker and BogusMarketDataFeed
  * 
- * @author sfl  Oct,1,2011
+ * @author sfl  Feb, 20,2013
  *
  */
-public class HelloBogus extends TradingSystem{
+public class MultiBogus extends TradingSystem{
 	
 	
 	private final IReportService reportService = new TextReportService();
@@ -46,9 +45,9 @@ public class HelloBogus extends TradingSystem{
 	/**
 	 * Sets Account
 	 */
-	private final IAccount account = new PaperAccount(45000, Currency.USD);
+	private final IAccount account = new PaperAccount(500000,Currency.USD);
 	{
-		account.setAccountID("Paper Account");
+		account.setAccountID("MyPaperAccount");
 	}			
 
 	
@@ -59,7 +58,6 @@ public class HelloBogus extends TradingSystem{
 	{
 		//broker.setSlippage(0.05);
 		broker.setBrokerCommissions(SecurityType.STK, 0.05);
-		broker.setBrokerCommissions(SecurityType.FUTURE, 5); // 5 pts
 	}
 	
 	/**
@@ -68,28 +66,16 @@ public class HelloBogus extends TradingSystem{
 	private final BogusMarketDataFeed marketDataFeed = new BogusMarketDataFeed();
 	{
 		marketDataFeed.setMarketDataEvent(MarketDataEventType.CANDLE_EVENT);
+		marketDataFeed.setBogusTime(10000); // 10 secs
 	}
 
 	
 	/**
-	 * Sets the security
-	 */
-	private final Security s = new Security();
-	{
-		s.setSymbol(new Symbol("AAPL"));
-		s.setSecurityType(SecurityType.STK);
-		s.setExchange("SMART");
-		s.setCurrency(Currency.USD);	
-	}; 
-		
-	
-	
-	/**
 	 * Costructor
 	 */
-	public HelloBogus() {
+	public MultiBogus() {
 		//setRunID("48");
-		setTradingSystemName("BOGUS Trade System");
+		setTradingSystemName("MultiBogus Strategy");
 		setTradingSystemDescription("This is a demo strategy using tbg-Quant framework.");	
 		/**
 		 * BROKER
@@ -107,8 +93,8 @@ public class HelloBogus extends TradingSystem{
 		/**
 		 * SECURITIES
 		 */
-		subscribeSecurity(s);
-
+		subscribeSecurities(new LoadSecurities(SecurityType.STK,"SMART",Currency.USD,"XOM,LMT,BHP,MSFT,MA,IBM,AAPL,GOOG,BAC,GS,MS").getSecurities());
+		
 	}
 	
 	/**
@@ -145,17 +131,15 @@ public class HelloBogus extends TradingSystem{
 		
         log.info("onEvent(): "+ce.toString());
     
-        
+		
 		// buy/sell every X events
-		if (count>6){
+		if (count>60){
 			if (positionTracker.getStatusForSymbol(symbol)==PositionTracker.NON_EXISTENT){
 				Order order = new Order();
-				order.setSecurity(s);
+				order.setSecurity(this.getSecurityBySymbol(symbol));
 				order.setOrderSide(OrderSide.BUY);
 				order.setOrderType(OrderType.MARKET);
-				//order.setOrderType(OrderType.LIMIT);
-				//order.setLimitPrice(11.25);
-				order.setQuantity(100.0);
+				order.setQuantity(20.0);
 				order.setTimeInForce(OrderTIF.DAY);
 		
 				broker.sendOrder(order);									
@@ -191,7 +175,7 @@ public class HelloBogus extends TradingSystem{
 	 * Start it up !
 	 */
 	public static void main(String[] args) {
-		new HelloBogus().start();
+		new MultiBogus().start();
     }
 	
 	
