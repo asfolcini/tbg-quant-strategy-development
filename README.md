@@ -1,4 +1,4 @@
-tbg-quant-strategy-development project
+tbg-Quant algorithmic trading framework
 -------------------------------------------------------------------------------------
 
 This project shows you how to build trading strategies using tbg-Quant algorithmic trading framework. 
