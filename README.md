@@ -88,7 +88,8 @@ Feel free to contact me at any time.<br>
 
 Credits
 -------------------------------------------------------------------------------------
-tbg-Quant is a proprietary product of The Bonnot Gang  www.thebonnotgang.com
+tbg-Quant is a proprietary product of The Bonnot Gang  www.thebonnotgang.com<br>
+LinkedIn : http://www.linkedin.com/company/the-bonnot-gang/
 
 
 
