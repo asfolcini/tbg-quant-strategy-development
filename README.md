@@ -67,7 +67,14 @@ Contents
   Routes orders received via CSV files to InteractiveBrokers account.<br>
   <i>WARNING</i>: Be sure to include IB API in the classpath.
 </ul>
-  
+
+<i><b>examples.ToM</b></i>
+<ul>
+  <b>ToM_Strategy.java</b><br>
+  This strategy tries to exploit the well known Turn of the Month effect.<br>
+  Returns around 4% profit per year on SPY in the last 12 years.
+</ul>
+
     
 
 
