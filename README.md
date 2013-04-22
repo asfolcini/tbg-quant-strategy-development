@@ -75,6 +75,12 @@ Contents
   Returns around 4% profit per year on SPY in the last 12 years.
 </ul>
 
+<i><b>examples.seasonal</b></i>
+<ul>
+  <b>NovApr_Strategy.java</b><br>
+  This strategy tries to exploit the November-April seasonal effect.<br>
+  Returns around 6% profit per year on XOM,LMT and BHP in more than 20 years.
+</ul>
     
 
 
