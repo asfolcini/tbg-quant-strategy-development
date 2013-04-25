@@ -1,0 +1,56 @@
+<project name="TBG-QUANT-STRATEGY-DEVELOPMENT" default="dist" basedir=".">
+    <description>
+        TBG-QUANT Strategy Development Examples
+    </description>
+  <!-- set global properties for this build -->
+  <property name="src" location="src"/>
+  <property name="build" location="build"/>
+  <property name="dist"  location="dist"/>
+
+  <path id="compile.classpath">
+ 	<fileset dir="lib">
+ 		<include name="*.jar"/>
+	</fileset>  	
+ 	<fileset dir="dist">
+ 		<include name="*.jar"/>
+	</fileset>  	
+  </path>
+	
+  <target name="compile" depends="init" >
+	<javac destdir="${build}" debug="true" srcdir="${src}">
+		<classpath refid="compile.classpath"/>
+	</javac>
+  </target>	
+	
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+  	<mkdir dir="${build}"/>
+  	<mkdir dir="${dist}"/>
+  </target>
+	
+  <target name="dist" depends="compile"
+        description="generate the distribution" >
+    <!-- Create the distribution directory -->
+    <mkdir dir="${dist}/"/>  
+  	<!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
+  	<jar jarfile="${dist}/tbg-quant-strategy-examples-${DSTAMP}.jar" update="true" duplicate="fail">
+  	    <fileset dir="${build}">
+  	      <include name="**/*"/>  
+  	      <exclude name="**/TO_REFACTOR/**"/>
+  	    </fileset>
+  		<fileset file="LICENSE.TXT" />
+	</jar>
+  	<!--
+  	<jar jarfile="${dist}/tbg-quant-examples-${DSTAMP}.jar" basedir="${build}/com/tbg/tradesystem"  update="true" duplicate="fail" />
+  	-->
+  </target>
+
+  <target name="clean"
+        description="clean up" >
+    <!-- Delete the ${build} and ${dist} directory trees -->
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+  </target>
+</project>

@@ -3,7 +3,7 @@
  *  
  *  Alberto Sfolcini <a.sfolcini@gmail.com>
  */
-package examples.tripleMAStartegy;
+package examples.tripleMAStrategy;
 
 import com.tbg.adapter.paper.account.PaperAccount;
 import com.tbg.adapter.paper.broker.PaperBroker;
