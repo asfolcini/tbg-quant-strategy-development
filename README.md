@@ -2,6 +2,8 @@ tbg-Quant algorithmic trading framework
 -------------------------------------------------------------------------------------
 
 This project shows you how to build trading strategies using tbg-Quant algorithmic trading framework. 
+<br><br>
+Dependence library: <strong>tbg-Quant-v1.1beta5</strong>
 
 Contents
 -------------------------------------------------------------------------------------
