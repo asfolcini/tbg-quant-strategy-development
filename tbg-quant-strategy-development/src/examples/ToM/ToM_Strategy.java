@@ -19,6 +19,7 @@ import com.tbg.core.model.types.MarketDataEventType;
 import com.tbg.core.model.types.Messages;
 import com.tbg.core.model.types.OrderSide;
 import com.tbg.core.model.types.OrderType;
+import com.tbg.core.model.types.ReportType;
 import com.tbg.core.model.types.SecurityType;
 import com.tbg.core.model.types.SignalType;
 import com.tbg.core.model.types.event.CandleEvent;
@@ -66,7 +67,7 @@ public class ToM_Strategy extends TradingSystem implements IStrategy{
 	/**
 	 * Setting the report service, by default prints report to the output.
 	 */
-	private final IReportService reportService = new TextReportService();
+	private final IReportService reportService = new TextReportService("ToM",ReportType.OUTPUT_AND_STORE);
 	
 	/**
 	 * Sets Security

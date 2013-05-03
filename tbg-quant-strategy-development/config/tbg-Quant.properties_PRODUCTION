@@ -2,3 +2,5 @@
 DB_USER=sa
 DB_PASSWORD=
 
+# Reports folder (with trailing /)
+REPORTS=../reports/
