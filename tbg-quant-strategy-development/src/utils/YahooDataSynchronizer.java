@@ -111,15 +111,14 @@ public class YahooDataSynchronizer extends TradingSystem implements IStrategy{
 			e1.printStackTrace();
 		}
 				
-		String header = "Nr;DateTime";
+		String header = "DateTime";
 		String s[] = SYMBOLS.split(",");	
 		for(int i=0;i<s.length;i++)
-			header += SEPARATOR+s[i]+" Open"+SEPARATOR+s[i]+" High"+SEPARATOR+s[i]+" Low"+SEPARATOR+s[i]+" Close"+SEPARATOR+s[i]+" Volume"+SEPARATOR+s[i]+" Yield C/O";
+			header += s[i]+" Open"+SEPARATOR+s[i]+" High"+SEPARATOR+s[i]+" Low"+SEPARATOR+s[i]+" Close"+SEPARATOR+s[i]+" Volume"+SEPARATOR+s[i]+" Yield C/O";
 		// System.err.println(header);
 		wrt.writeln(header);
-		int counter = 1;
 		for (Entry<TimeStamp, ArrayList<CandleEvent>> e : hm.entrySet()) {			
-			String row = counter+SEPARATOR+MiscUtils.getFormattedDate("yyyy/MM/dd hh:mm:sss",e.getKey().getDate());
+			String row =MiscUtils.getFormattedDate("yyyy/MM/dd hh:mm:sss",e.getKey().getDate());
 		    ArrayList<CandleEvent> ace = e.getValue();
 		    // Align
 		    if (ace.size()==s.length){
@@ -127,7 +126,6 @@ public class YahooDataSynchronizer extends TradingSystem implements IStrategy{
 				    for(int i=0;i<ace.size();i++){
 				    	CandleEvent ce = ace.get(i);
 				    	if (ce.getSymbol().equalsIgnoreCase(s[j])){
-				    		counter++;
 				    		String yield = (""+Math.log(ce.getClosePrice()/ce.getOpenPrice())*100).replace(".", DECIMAL); 
 				    		row  +=  (SEPARATOR+ce.getOpenPrice()).replace(".", DECIMAL)
 				    				+(SEPARATOR+ce.getHighPrice()).replace(".", DECIMAL)
@@ -144,7 +142,7 @@ public class YahooDataSynchronizer extends TradingSystem implements IStrategy{
 			}		    		    		   
 		} //TreeMap
 		wrt.close();
-		log.info("========>>>>>> "+counter+" rows synchronized for symbols ["+SYMBOLS+"], output file saved in "+OUTPUT);
+		log.info("========>>>>>> Data synchronized for symbols ["+SYMBOLS+"], output file saved in "+OUTPUT);
 	}
 	
 	// this is an ordered map
