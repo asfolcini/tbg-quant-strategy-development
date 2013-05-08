@@ -117,9 +117,8 @@ public class YahooDataSynchronizer extends TradingSystem implements IStrategy{
 			header += SEPARATOR+s[i]+" Open"+SEPARATOR+s[i]+" High"+SEPARATOR+s[i]+" Low"+SEPARATOR+s[i]+" Close"+SEPARATOR+s[i]+" Volume"+SEPARATOR+s[i]+" Yield C/O";
 		// System.err.println(header);
 		wrt.writeln(header);
-		int counter = 0;
-		for (Entry<TimeStamp, ArrayList<CandleEvent>> e : hm.entrySet()) {
-			counter++;
+		int counter = 1;
+		for (Entry<TimeStamp, ArrayList<CandleEvent>> e : hm.entrySet()) {			
 			String row = counter+SEPARATOR+MiscUtils.getFormattedDate("yyyy/MM/dd hh:mm:sss",e.getKey().getDate());
 		    ArrayList<CandleEvent> ace = e.getValue();
 		    // Align
@@ -128,6 +127,7 @@ public class YahooDataSynchronizer extends TradingSystem implements IStrategy{
 				    for(int i=0;i<ace.size();i++){
 				    	CandleEvent ce = ace.get(i);
 				    	if (ce.getSymbol().equalsIgnoreCase(s[j])){
+				    		counter++;
 				    		String yield = (""+Math.log(ce.getClosePrice()/ce.getOpenPrice())*100).replace(".", DECIMAL); 
 				    		row  +=  (SEPARATOR+ce.getOpenPrice()).replace(".", DECIMAL)
 				    				+(SEPARATOR+ce.getHighPrice()).replace(".", DECIMAL)
