@@ -85,7 +85,14 @@ Contents
   This strategy tries to exploit the November-April seasonal effect.<br>
   Returns around 6% profit per year on XOM,LMT and BHP in more than 20 years.
 </ul>
-    
+
+<i><b>utils</b></i>
+<ul>
+  <b>YahooDataSynchronizer.java</b><br>
+  Synchronizes Yahoo historical data between more symbols and write a csv file as output.<br>
+  Output data (csv format) includes date,X_Open,X_High,X_Low,X_Close,X_Volume,X_Yield , where X is the symbol.
+</ul>
+
 
 
 
