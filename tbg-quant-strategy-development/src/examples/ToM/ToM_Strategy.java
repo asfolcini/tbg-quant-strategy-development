@@ -60,7 +60,7 @@ public class ToM_Strategy extends TradingSystem implements IStrategy{
 	private final IBroker broker = new PaperBroker(account);		
 	private final YahooMarketDataFeed marketDataFeed = new YahooMarketDataFeed();	
 	{
-		marketDataFeed.setYahooParameters("1", "1", "2000", "1", "1", "2012", "Daily");
+		marketDataFeed.setYahooParameters("1", "1", "2000", "1", "1", "2012", YahooMarketDataFeed.YAHOO_DAILY);
 		marketDataFeed.setMarketDataEvent(MarketDataEventType.CANDLE_EVENT);
 	}
 	

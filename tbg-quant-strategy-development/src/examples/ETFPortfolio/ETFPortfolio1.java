@@ -60,7 +60,7 @@ public class ETFPortfolio1 extends TradingSystem {
 	private final YahooMarketDataFeed marketDataFeed = new YahooMarketDataFeed();
 	{
 		marketDataFeed.setMarketDataEvent(MarketDataEventType.CANDLE_EVENT);
-		marketDataFeed.setYahooParameters("1", "1", "2000", "1", "1", "2013", "Weekly");
+		marketDataFeed.setYahooParameters("1", "1", "2000", "1", "1", "2013", YahooMarketDataFeed.YAHOO_WEEKLY);
 	}
 	
 	/**

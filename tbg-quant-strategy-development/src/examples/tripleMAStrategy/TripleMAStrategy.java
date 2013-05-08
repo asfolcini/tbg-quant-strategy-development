@@ -82,16 +82,13 @@ public class TripleMAStrategy extends TradingSystem {
 	private final YahooMarketDataFeed marketDataFeed = new YahooMarketDataFeed();
 	{
 		marketDataFeed.setMarketDataEvent(MarketDataEventType.CANDLE_EVENT);
-		marketDataFeed.setYahooParameters("1", "1", "2006", "1", "1", "2013", "Weekly");
+		marketDataFeed.setYahooParameters("1", "1", "2006", "1", "1", "2013", YahooMarketDataFeed.YAHOO_WEEKLY);
 	}
 	
 	/**
 	 * REPORT SERVICE
 	 */
-	private final IReportService reportService = new TextReportService();
-	{
-		reportService.setReportType(ReportType.OUTPUT_ONLY);
-	}
+	private final IReportService reportService = new TextReportService("TripleMAStrategy",ReportType.OUTPUT_AND_STORE);
 	
 	
 	/**

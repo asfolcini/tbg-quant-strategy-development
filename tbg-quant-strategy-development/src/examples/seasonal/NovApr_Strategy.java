@@ -17,6 +17,7 @@ import com.tbg.core.model.types.MarketDataEventType;
 import com.tbg.core.model.types.Messages;
 import com.tbg.core.model.types.OrderSide;
 import com.tbg.core.model.types.OrderType;
+import com.tbg.core.model.types.ReportType;
 import com.tbg.core.model.types.SecurityType;
 import com.tbg.core.model.types.SignalType;
 import com.tbg.core.model.types.event.CandleEvent;
@@ -54,14 +55,14 @@ public class NovApr_Strategy extends TradingSystem implements IStrategy{
 	private final IBroker broker = new PaperBroker(account);		
 	private final YahooMarketDataFeed marketDataFeed = new YahooMarketDataFeed();	
 	{
-		marketDataFeed.setYahooParameters("1", "1", "1990", "1", "1", "2014", "Daily");
+		marketDataFeed.setYahooParameters("1", "1", "1990", "1", "1", "2014", YahooMarketDataFeed.YAHOO_DAILY);
 		marketDataFeed.setMarketDataEvent(MarketDataEventType.CANDLE_EVENT);
 	}
 	
 	/**
 	 * Setting the report service, by default prints report to the output.
 	 */
-	private final IReportService reportService = new TextReportService();
+	private final IReportService reportService = new TextReportService("NovApr_Strategy",ReportType.OUTPUT_AND_STORE);
 	
 	
 	/**
