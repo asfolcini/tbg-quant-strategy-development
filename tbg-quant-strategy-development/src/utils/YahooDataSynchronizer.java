@@ -86,7 +86,7 @@ public class YahooDataSynchronizer extends TradingSystem implements IStrategy{
 				
 		String _from[] 	= FROM.split("/");
 		String _to[] 	= TO.split("/");		
-		marketDataFeed.setYahooParameters(_from[0], _from[1], _from[2], _to[0], _to[1], _to[2], timeframe);
+		marketDataFeed.setYahooParameters(_from[0], _from[1], _from[2], _to[0], _to[1], _to[2], TIMEFRAME);
 		
 		setTradingSystemName("Yahoo Historical Data Synchronizer");
 		setTradingSystemDescription("Synchronizes Yahoo Historical Data");
