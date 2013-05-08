@@ -114,7 +114,7 @@ public class YahooDataSynchronizer extends TradingSystem implements IStrategy{
 		String header = "DateTime";
 		String s[] = SYMBOLS.split(",");	
 		for(int i=0;i<s.length;i++)
-			header += s[i]+" Open"+SEPARATOR+s[i]+" High"+SEPARATOR+s[i]+" Low"+SEPARATOR+s[i]+" Close"+SEPARATOR+s[i]+" Volume"+SEPARATOR+s[i]+" Yield C/O";
+			header += SEPARATOR+s[i]+" Open"+SEPARATOR+s[i]+" High"+SEPARATOR+s[i]+" Low"+SEPARATOR+s[i]+" Close"+SEPARATOR+s[i]+" Volume"+SEPARATOR+s[i]+" Yield C/O";
 		// System.err.println(header);
 		wrt.writeln(header);
 		for (Entry<TimeStamp, ArrayList<CandleEvent>> e : hm.entrySet()) {			
