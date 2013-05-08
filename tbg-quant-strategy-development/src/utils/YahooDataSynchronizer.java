@@ -197,7 +197,7 @@ public class YahooDataSynchronizer extends TradingSystem implements IStrategy{
 		System.out.println("\t [csvSeparator]     CSV Separator comma or semicolon ex. ; ");
 		System.out.println("\t [decimalSeparator] Decimal Separator comma or dot ex. ,");
 		System.out.println();
-		System.out.println("EXAMPLE:\t"+YahooDataSynchronizer.class.getSimpleName()+" SPY,^GDAXI 01/01/2006 31/12/2013 daily synchronizedDax.csv ; ,");
+		System.out.println("EXAMPLE:\t"+YahooDataSynchronizer.class.getSimpleName()+" SPY,^GDAXI 01/01/2006 31/12/2013 daily synchronizedDax.csv ';' ','");
 		System.out.println();
 		
 	}
