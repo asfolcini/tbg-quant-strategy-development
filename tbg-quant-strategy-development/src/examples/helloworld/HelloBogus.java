@@ -59,7 +59,7 @@ public class HelloBogus extends TradingSystem{
 	{
 		//broker.setSlippage(0.05);
 		broker.setBrokerCommissions(SecurityType.STK, 0.05);
-		broker.setBrokerCommissions(SecurityType.FUTURE, 5); // 5 pts
+		broker.setBrokerCommissions(SecurityType.FUT, 5); // 5 pts
 	}
 	
 	/**
