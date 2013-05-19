@@ -76,8 +76,8 @@ public class IB_Forex extends TradingSystem{
 	 * Costructor
 	 */
 	public IB_Forex() {
-		setTradingSystemName("IB_Forex");
-		setTradingSystemDescription("InteractiveBrokers streaming forex quotes");
+		setTradingSystemName("IB_CEP_Esper");
+		setTradingSystemDescription("InteractiveBrokers tick streaming");
 		setBroker(broker);		
 		setMarketDataFeed(marketDataFeed);
 		subscribeSecurity(EURUSD);
