@@ -95,8 +95,8 @@ public class IB_Futures extends TradingSystem{
 	 * Costructor
 	 */
 	public IB_Futures() {
-		setTradingSystemName("IB_CEP_Esper");
-		setTradingSystemDescription("InteractiveBrokers tick streaming");
+		setTradingSystemName("IB_Futures");
+		setTradingSystemDescription("InteractiveBrokers Futures example");
 		setBroker(broker);		
 		setMarketDataFeed(marketDataFeed);
 		subscribeSecurity(DAX);
