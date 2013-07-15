@@ -76,7 +76,7 @@ public class HelloYahooSynchronizedBackTest extends TradingSystem{
 		 * if the parameter is false, you get only XOM event until 1980, then you will get
 		 * both XOM and BHP...
 		 */
-		marketDataFeed.FORCE_SYNCHRONIZATION = false;
+		marketDataFeed.FORCE_SYNCHRONIZATION = true;
 	}
 	
 	
