@@ -3,7 +3,7 @@ tbg-Quant algorithmic trading framework
 
 This project shows you how to build trading strategies using tbg-Quant algorithmic trading framework. 
 <br><br>
-Dependence library: <strong>tbg-Quant-v1.1beta5</strong>
+Dependence library: <strong>tbg-Quant-v1.1beta6</strong>
 
 Contents
 -------------------------------------------------------------------------------------
@@ -23,6 +23,9 @@ Contents
   <br>
   <b>HelloYahoo.java</b><br>
   How to use Yahoo data usign YahooMarketDataFeed.
+  <br>
+  <b>HelloYahooSynchronizedBackTest.java</b><br>
+  Multi-security Yahoo example, synchronized ^GDAXI and SPY.
   <br>
   <b>HelloSiddhi.java</b><br>
   How to use Siddhi CEP Provider.<br>
@@ -85,6 +88,16 @@ Contents
   This strategy tries to exploit the November-April seasonal effect.<br>
   Returns around 6% profit per year on XOM,LMT and BHP in more than 20 years.
 </ul>
+
+<i><b>examples.csvCustomMarketDataFeed</b></i>
+<ul>
+  <b>CsvCustomMarketDataFeed.java</b><br>
+  Show how to write your custom CSV MarketDataFeed, this example show how to use local CSV (Yahoo Format).<br>
+  You can easily adapt it to your CSV format by changing downloadQuotes() & loadData() methods.<br>
+  <b>CsvCustomStrategy.java</b><br>
+  This strategy show how to use the CsvCustommarketDataFeed.<br>
+</ul>
+
 
 <i><b>utils</b></i>
 <ul>
