@@ -16,6 +16,6 @@
 	<classpathentry kind="lib" path="lib/siddhi-query-1.0.0-SNAPSHOT.jar"/>
 	<classpathentry kind="lib" path="lib/ta-lib-0.4.0.jar"/>
 	<classpathentry kind="lib" path="/tbg-quant-examples/config"/>
-	<classpathentry kind="lib" path="lib/tbg-quant-core-20130715.jar"/>
+	<classpathentry kind="lib" path="lib/tbg-quant-core-20130716.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

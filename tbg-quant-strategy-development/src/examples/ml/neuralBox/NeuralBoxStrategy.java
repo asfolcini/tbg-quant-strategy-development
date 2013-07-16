@@ -27,6 +27,7 @@ import com.tbg.core.model.types.event.CandleEvent;
 import com.tbg.ml.neuralbox.DataSet;
 import com.tbg.service.report.TextReportService;
 import com.tbg.strategy.TradingSystem;
+import com.tbg.strategy.utils.LoadSecurities;
 
 /**
  * Machine Learning - Neural Networks Strategy <br>
@@ -87,21 +88,7 @@ public class NeuralBoxStrategy extends TradingSystem{
 		marketDataFeed.setMarketDataEvent(MarketDataEventType.CANDLE_EVENT);
 	}	
 	
-	
-	
-	/**
-	 * Sets the security
-	 */
-	private final Security s = new Security();
-	{
-		// this is the YAHOO symbol
-		s.setSymbol(new Symbol("SPY"));
-		s.setSecurityType(SecurityType.INDEX);
-		s.setExchange("SMART");
-		s.setCurrency(Currency.USD);	
-	}; 
-	
-	
+		
 	/**
 	 * Costructor
 	 */
@@ -110,8 +97,8 @@ public class NeuralBoxStrategy extends TradingSystem{
 		setTradingSystemDescription("");
 		setBroker(broker);		
 		setMarketDataFeed(marketDataFeed);
-		setReportService(reportService);
-		subscribeSecurity(s);
+		setReportService(reportService);		
+		subscribeSecurities(new LoadSecurities(SecurityType.STK,"Yahoo",Currency.USD,"SPY,AAPL").getSecurities());
 		setMinimunSystemPeriods(ROLLING_WINDOW);
 	}
 	
@@ -145,7 +132,7 @@ public class NeuralBoxStrategy extends TradingSystem{
 			
 		rw.add(ce);			
 			
-		if (getSystemActivation(s.getSymbol().toString())){   												
+		if (getSystemActivation(symbol)){   												
 			/**
 			 * BUILDING DATASET  ( RollingWindow )
 			 */			
