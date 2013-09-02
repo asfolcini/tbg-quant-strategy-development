@@ -13,8 +13,6 @@ import org.encog.Encog;
 import com.tbg.adapter.paper.account.PaperAccount;
 import com.tbg.adapter.paper.broker.PaperBroker;
 import com.tbg.adapter.yahoo.marketdatafeed.YahooMarketDataFeed;
-import com.tbg.core.model.Security;
-import com.tbg.core.model.Symbol;
 import com.tbg.core.model.broker.IBroker;
 import com.tbg.core.model.report.IReportService;
 import com.tbg.core.model.types.Currency;
