@@ -5,6 +5,20 @@ This project shows you how to build trading strategies using tbg-Quant algorithm
 <br><br>
 Dependence library: <strong>tbg-Quant-v1.1beta6</strong>
 
+<b>WHAT'S NEW in v1.1beta6 (september 2,2013)</b>
+
+- NeuralBox package
+- IBAPI IBGateway support
+- IBAPI error/warning messages (improved)
+- IBAPI portfolio updating with multisecurity (Bug-Fixed)
+- Added TimeFrame attributo to CandleEvent
+- TickToCandleEvent Service, multisecurity
+- PositionTracker (Position_Pending) bug-Fixed
+- Added invokeStopStrategy method
+- Synchronizing Historical Data with YahooMarketDataFeed
+- Added apache commong-lang for DateUtils
+
+
 Contents
 -------------------------------------------------------------------------------------
 <i><b>examples.skeleton</b></i>
